@@ -1,0 +1,3 @@
+[submodule "SourceCode/custom-mini-ndn"]
+	path = SourceCode/custom-mini-ndn
+	url = https://gitlab.itec.aau.at/philipp-moll/mini-ndn.git
