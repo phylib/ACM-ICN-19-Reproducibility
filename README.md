@@ -11,6 +11,7 @@ To install and execute Jupyter, type the following commands:
 
 ```bash
 ./result-analysis/install.sh
+export ANALYSIS_HOME=$(pwd)
 source icn-analysis/bin/activate
 jupyter notebook result-analysis/OverheadCalculation.ipynb
 ```   
