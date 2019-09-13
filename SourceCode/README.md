@@ -52,9 +52,9 @@ cp ../..
 git clone https://github.com/zeromq/cppzmq.git
 cd cppzmq
 git checkout bfdc7885b87e0931a561c769b9b1375595cb7abb
-mkdir build
-cd build
-cmake ..
+mkdir build                                                               
+cd build                                                                
+cmake ..                                                                
 sudo make -j4 install
 cd ../..
 ```
@@ -85,6 +85,19 @@ cd ../PSync/
 git fetch --tags && git checkout 0.1.0
 ./waf clean && ./waf && sudo ./waf install
 cd ../..
+```
+
+### Proxy Application to connect clients
+
+In order to connect clients to the distributed server cluster, we use an proxy
+Minecraft proxy, created by [Herman Engelbrecht et al.](https://ieeexplore.ieee.org/abstract/document/6866580/). In order to
+download and install it, follow the following instructions.
+
+```bash
+git clone https://phylib@bitbucket.org/hebrecht/herobrineproxy.git
+git checkout phmoll/v1.12.2/ndn
+mvn install
+cd ..
 ```
 
 ## Installation of modified Spigot
@@ -155,6 +168,7 @@ settings of a single network agent instance.
 ## NFD settings
 
 Server 0:
+```
 sudo nfd-stop
 sudo nfd-start
 sudo nfdc face create remote udp://192.168.33.11
@@ -177,8 +191,10 @@ sudo nfdc route add prefix /mc/0/4:5/ nexthop udp://192.168.33.11
 sudo nfdc route add prefix /mc/0/3:5/ nexthop udp://192.168.33.11
 sudo nfdc route add prefix /mc/0/4:3/ nexthop udp://192.168.33.11
 sudo nfdc route add prefix /mc/0/4:4/ nexthop udp://192.168.33.11
+```
 
 Server1:
+```
 sudo nfd-stop
 sudo nfd-start
 sudo nfdc face create remote udp://192.168.33.10
@@ -204,4 +220,5 @@ sudo nfdc route add prefix /mc/0/3:2/ nexthop udp://192.168.33.10
 sudo nfdc route add prefix /mc/0/4:1/ nexthop udp://192.168.33.10
 sudo nfdc route add prefix /mc/0/6:0/ nexthop udp://192.168.33.10
 sudo nfdc route add prefix /mc/0/4:2/ nexthop udp://192.168.33.10
+```
 
